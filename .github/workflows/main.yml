@@ -1,12 +1,9 @@
 name: ci
 
 on:
-  pull_request:
-    branches: 
-      - 'release'
-  # push:
-  #   branches:
-  #     - "release"
+  push:
+    branches:
+      - "release"
 
 jobs:
   build:
@@ -28,4 +25,3 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:latest
-    if: github.event.pull_request.merged
